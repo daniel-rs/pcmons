@@ -92,7 +92,7 @@ Security Monitoring
  pcmons was extended to monitor security metrics (SSH connections, availability, backup, encryption, ile system integrity, malware, password expiration, and vulnerability analysis) by Daniel Ricardo dos Santos (@daniel-rs). 
  
  The metrics and architectural extensions are described in the paper:
- * P.A.F. Vitti, D.R. dos Santos, C.B. Westphall, C.M. Westphall, K.M.M. Vieira, "[https://daniel-rs.github.io/files/publications/securware2014_paper.pdf](Current Issues in Cloud Computing Security and Management)" in SECURWARE 2014: The Eighth International Conference on Emerging Security Information, Systems and Technologies
+ * P.A.F. Vitti, D.R. dos Santos, C.B. Westphall, C.M. Westphall, K.M.M. Vieira, "[Current Issues in Cloud Computing Security and Management](https://daniel-rs.github.io/files/publications/securware2014_paper.pdf)" in SECURWARE 2014: The Eighth International Conference on Emerging Security Information, Systems and Technologies
  
  Each metric depends on an external security tool, so the services should be configured and run accordingly:
  * Backup - depends on rsync (e.g., rsync -avz user@domain:/home/user /home/local_user/ --log-file=/var/log/rsync.log)
