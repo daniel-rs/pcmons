@@ -74,7 +74,7 @@ Installation
 
 4. Copy all files in the node folder ($PCMONS/running_vms/node/) to the node hosts and run it (python VM_Monitoring_Node_Plugin.py).
 
-5. Run the others files in the cluster/cloud controller host (where Nagios is installed).
+5. Run the other files in the cluster/cloud controller host (where Nagios is installed).
 
 
 Information
@@ -86,4 +86,17 @@ More information about monitoring of private clouds and pcmons architecture:
  * https://projetos.inf.ufsc.br/arquivos_projetos/projeto_1285/Principal.pdf (Portuguese)
  * http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6094017&sortType%3Dasc_p_Sequence%26filter%3DAND%28p_IS_Number%3A6093994%29 (English)
 
+Security Monitoring
+--------
 
+ pcmons was extended to monitor security metrics (SSH connections, availability, backup, encryption, ile system integrity, malware, password expiration, and vulnerability analysis) by Daniel Ricardo dos Santos. 
+ 
+ The metrics and architectural extensions are described in the paper:
+ * P.A.F. Vitti, D.R. dos Santos, C.B. Westphall, C.M. Westphall, K.M.M. Vieira, "Current Issues in Cloud Computing Security and Management" in SECURWARE 2014: The Eighth International Conference on Emerging Security Information, Systems and Technologies
+ 
+ Each metric depends on an external security tool, so the services should be configured and run accordingly:
+ * Backup - depends on rsync (e.g., rsync -avz user@domain:/home/user /home/local_user/ --log-file=/var/log/rsync.log)
+ * Encryption - depends on cryptsetup (e.g., sudo apt-get install cryptsetup)
+ * Integrity - depends on tripwire (e.g., tripwire --check > /var/log/tripwire.log) 
+ * Malware - depends on clamav (e.g., clamscan / -l /var/log/clamav/clamav.log)
+ * Vulnerability - depends on tiger (e.g., tiger -l /var/log/tiger)
